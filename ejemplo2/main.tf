@@ -22,24 +22,19 @@ resource "aws_instance" "app_server" {
     Name = "InstanciaPrueba"
   }
 
-# Copies the file as the root user using SSH
-  provisioner "file" {
-    source = "index.html"
-    destination = "/tmp/index.html"
-    connection {
-        type = "ssh"
-        user = "ubuntu"
-        host =  self.public_ip
-        }
-  
-}
+## Copies the file as the root user using SSH
+#  provisioner "file" {
+#    source = "index.html"
+#    destination = "/tmp/index.html"
+#    connection {
+#        type = "ssh"
+#        user = "ubuntu"
+#        host =  self.public_ip
+#        }
+#  
+#}
 
   provisioner "local-exec" {
     command = "sudo apt-get update && sudo apt-get -y install apache2 && sudo cp /tmp/index.html /var/www/html"
-    connection {
-        type = "ssh"
-        user = "ubuntu"
-        host =  self.public_ip
-      }
   }
 }
