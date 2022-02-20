@@ -29,6 +29,7 @@ resource "aws_instance" "app_server" {
     connection {
         type = "ssh"
         user = "ubuntu"
+        host =  self.public_ip
         }
 }
 
@@ -36,6 +37,7 @@ resource "aws_instance" "app_server" {
     connection {
         type = "ssh"
         user = "ubuntu"
+        host =  self.public_ip
         }
     inline = [
       "sudo apt-get update",
