@@ -37,4 +37,4 @@ resource "aws_instance" "app_server" {
 #  provisioner "local-exec" {
 #    command = "sudo apt-get update && sudo apt-get -y install apache2 && sudo cp /tmp/index.html /var/www/html"
 #  }
-#}
+}
