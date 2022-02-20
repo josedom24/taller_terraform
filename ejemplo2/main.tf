@@ -31,6 +31,7 @@ resource "aws_instance" "app_server" {
         user = "ubuntu"
         agent= true
         host =  self.public_ip
+        private_key = file(pathexpand("~/.ssh/id_rsa"))
         }
   
 }
