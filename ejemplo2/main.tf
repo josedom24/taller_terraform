@@ -23,24 +23,24 @@ resource "aws_instance" "app_server" {
   }
 
 # Copies the file as the root user using SSH
-provisioner "file" {
-  source = "index.html"
-  destination = "/tmp/index.html"
-  connection {
-      type = "ssh"
-      user = "ubuntu"
-      }
+  provisioner "file" {
+    source = "index.html"
+    destination = "/tmp/index.html"
+    connection {
+        type = "ssh"
+        user = "ubuntu"
+        }
 }
-# Ejecuta remotamente
-provisioner "remote-exec" {
-  connection {
-      type = "ssh"
-      user = "ubuntu"
-      }
-  inline = [
-    "sudo apt-get update",
-    "sudo apt-get -y install apache2",
-    "sudo cp /tmp/index.html /var/www/html",
-  ]
-}
+
+  provisioner "remote-exec" {
+    connection {
+        type = "ssh"
+        user = "ubuntu"
+        }
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get -y install apache2",
+      "sudo cp /tmp/index.html /var/www/html",
+    ]
+  }
 }
