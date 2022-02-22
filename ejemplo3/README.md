@@ -1,4 +1,4 @@
-# Ejemplo 2: Configuración de una instancia aws
+# Ejemplo 3: Configuración de una instancia aws
 
 Para crear y configurar una instancia aws necesitamos acceder con una clave privada que no tenga frase de paso.
 
