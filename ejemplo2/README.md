@@ -24,3 +24,48 @@ terrafom apply
 ```
 
 En el fichero [`outputs.tf`]((https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/outputs.tf) podemos configurar las variables que quiero que me muestre al finalizar el despliegue.
+
+![img](img/terra1.png)
+
+Y vemos que se ha creado una instancia:
+
+![img](img/terra2.png)
+
+Y comprobamos que podemos acceder:
+
+```
+$ ssh ubuntu@54.212.41.136
+Enter passphrase for key '/home/vagrant/.ssh/id_rsa': 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1022-aws x86_64)
+
+...
+
+ubuntu@ip-172-31-27-39:~$ 
+```
+
+Podemos inspeccionar el escenario montado:
+
+```
+terraform show
+```
+
+## Cambiando la infraestructura
+
+En cualquier momento podemos cambiar la configuración del despliegue. A medida que cambias las configuraciones de Terraform, Terraform construye un plan de ejecución que sólo modifica lo necesario para alcanzar el estado deseado.
+
+En ocasiones, un cambio conllevará la creación de una nueva máquina, en otras ocasiones el cambio se hará sobre la instancia creada.
+
+Por ejemplo si cambiamos la imagen del despliegue y ponemos la `ami-08d70e59c07c61a3a` (Ubuntu 16.04):
+
+![img](img/terra3.png)
+
+Y ejecutamos `terraform apply` para cambiar el despliegue y comprobamos que se ha creado una nueva instancia:
+
+![img](img/terra4.png)
+
+## Eliminar el despliegue
+
+```
+terraform destroy
+```
+
