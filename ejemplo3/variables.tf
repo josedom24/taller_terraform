@@ -7,5 +7,5 @@ variable "instance_name" {
 variable "key" {
   description = "Value of key of access"
   type        = string
-  default     = "key_aws"
+  default     = "id_aws"
 }
