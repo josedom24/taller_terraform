@@ -16,6 +16,8 @@ aws configure
 
 Podemos ver el fichero [`main.tf`](https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/main.tf).
 
+La información del provider `hashicorp/aws` la puedes encontrar en su [documentación oficial](https://registry.terraform.io/providers/hashicorp/aws/latest/docs).
+
 Y ejecutamos el despliegue:
 
 ```
