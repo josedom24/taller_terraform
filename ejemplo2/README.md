@@ -68,6 +68,8 @@ Realmente cuando ejecutamos un `terraform apply` previamente se ejecuta un `terr
 
 ## Eliminar el despliegue
 
+Tanto los cambios, como la destrucción del escenario necesita que el fichero de estado `terraform.tfstate` exista en el directorio.
+
 ```
 terraform destroy
 ```
