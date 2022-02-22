@@ -23,7 +23,7 @@ terraform init
 terrafom apply
 ```
 
-En el fichero [`outputs.tf`]((https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/outputs.tf) podemos configurar las variables que quiero que me muestre al finalizar el despliegue.
+En el fichero [`outputs.tf`](https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/outputs.tf) podemos configurar las variables que quiero que me muestre al finalizar el despliegue.
 
 ![img](img/terra1.png)
 
@@ -62,6 +62,9 @@ Por ejemplo si cambiamos la imagen del despliegue y ponemos la `ami-08d70e59c07c
 Y ejecutamos `terraform apply` para cambiar el despliegue y comprobamos que se ha creado una nueva instancia:
 
 ![img](img/terra4.png)
+
+Realmente cuando ejecutamos un `terraform apply` previamente se ejecuta un `terraform plan` que genera el **plan de ejecución**, donde se indica los recursos que se van a crear, se van a modificar y se van a destruir. Finalmente cuando se aplica el plan el estado del despliegue se guarda en el fichero `terraform.tfstate`. si guardamos este fichero en un repositorio, podremos controlar los cambios que se van produciendo en nuestro despliegue y se podrá replicar el despliegue en cualquier momento.
+
 
 ## Eliminar el despliegue
 
