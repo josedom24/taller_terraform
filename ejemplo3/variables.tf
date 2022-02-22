@@ -3,3 +3,9 @@ variable "instance_name" {
   type        = string
   default     = "ExampleAppServerInstance"
 }
+
+variable "key" {
+  description = "Value of key of access"
+  type        = string
+  default     = "key_aws"
+}

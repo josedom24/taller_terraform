@@ -17,9 +17,9 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0892d3c7ee96c0bf7"
   instance_type = "t2.micro"
-  key_name = "key_jdmr"
+  key_name = var.key
   tags = {
-    Name = "InstanciaPrueba"
+    Name = var.instance_name
   }
 
 # Copies the file as the root user using SSH
@@ -29,14 +29,24 @@ resource "aws_instance" "app_server" {
     connection {
         type = "ssh"
         user = "ubuntu"
-        agent= true
         host =  self.public_ip
-        private_key = file(pathexpand("~/.ssh/id_rsa"))
+        private_key = file(pathexpand("~/.ssh/id_aws"))
         }
   
 }
 
-#  provisioner "local-exec" {
-#    command = "sudo apt-get update && sudo apt-get -y install apache2 && sudo cp /tmp/index.html /var/www/html"
-#  }
+  provisioner "remote-exec" {
+    connection {
+        type = "ssh"
+        user = "ubuntu"
+        host =  self.public_ip
+        private_key = file(pathexpand("~/.ssh/id_aws"))
+        }
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get -y install apache2",
+      "sudo cp /tmp/index.html /var/www/html",
+    ]
+  }
+
 }
