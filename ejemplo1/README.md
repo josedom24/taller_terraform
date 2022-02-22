@@ -1,5 +1,7 @@
 # Ejemplo 1: Creación de un contenedor docker
 
+Vamos a crear un contenedor docker con terraform. En la máquina donde vamos a ejecutar terraform tenemos instalado docker.
+
 Hemos creado un fichero `main.tf`:
 
 ```
@@ -29,7 +31,7 @@ resource "docker_container" "nginx" {
 }
 ```
 
-A continuación inicializamos el entorno, se instará el `provider`:
+A continuación inicializamos el entorno, se instará el [`provider`](https://registry.terraform.io/browse/providers):
 
 ```
 terraform init
