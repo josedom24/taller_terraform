@@ -14,6 +14,13 @@ aws configure
 
 ## Fichero main.tf
 
-Podemos ver el fichero [main.tf](https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/main.tf).
+Podemos ver el fichero [`main.tf`](https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/main.tf).
 
+Y ejecutamos el despliegue:
 
+```
+terraform init
+terrafom apply
+```
+
+En el fichero [`outputs.tf`]((https://github.com/josedom24/taller_terraform/blob/main/ejemplo2/outputs.tf) podemos configurar las variables que quiero que me muestre al finalizar el despliegue.
