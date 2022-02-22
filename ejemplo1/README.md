@@ -31,7 +31,7 @@ resource "docker_container" "nginx" {
 }
 ```
 
-A continuación inicializamos el entorno, se instará el [`provider`](https://registry.terraform.io/browse/providers):
+Podemos ver información del provider [`kreuzwerker/docker`](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs). A continuación inicializamos el entorno, se instará el [`provider`](https://registry.terraform.io/browse/providers):
 
 ```
 terraform init
