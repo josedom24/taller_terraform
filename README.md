@@ -24,6 +24,7 @@ Y reinicia la shell
 
 * [Ejemplo 1: Creación de un contenedor docker](ejemplo1)
 * [Ejemplo 2: Creación de una instancia aws](ejemplo2)
+* [Ejemplo 3: Configuración de una instancia aws](ejemplo3)
 
 ## AWS
 
