@@ -13,4 +13,50 @@ En el fichero [`main.tf`](https://github.com/josedom24/taller_terraform/blob/mai
 Además en el fichero `main.tf` hemos incluido dos acciones que nos van a configurar la instancias:
 
 ```
+# Copies the file as the root user using SSH
+  provisioner "file" {
+    source = "index.html"
+    destination = "/tmp/index.html"
+    connection {
+        type = "ssh"
+        user = "ubuntu"
+        host =  self.public_ip
+        private_key = file(pathexpand("~/.ssh/id_aws"))
+        }
+  
+}
 
+  provisioner "remote-exec" {
+    connection {
+        type = "ssh"
+        user = "ubuntu"
+        host =  self.public_ip
+        private_key = file(pathexpand("~/.ssh/id_aws"))
+        }
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get -y install apache2",
+      "sudo cp /tmp/index.html /var/www/html",
+    ]
+  }
+  ```
+
+  Ejecutamos el despliegue:
+
+  ```
+  terraform init
+  terraform apply
+  ```
+
+  Las salidas que nos da el despliegue son:
+
+  ```
+  Outputs:
+
+instance_ip_addr = "18.236.136.221"
+instance_url = "ec2-18-236-136-221.us-west-2.compute.amazonaws.com"
+```
+
+Y comprobamos que se ha instalado un apache2 y se ha copiado un index.html:
+
+![img](../ejemplo2/img/aws5.png)
