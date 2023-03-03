@@ -2,9 +2,21 @@
 
 Lo primero que vamos a hacer es crear un token de acceso para que terraform pueda acceder a nuestra cuenta de aws. Y vamos a guardar las credenciales en nuestro ordenador:
 
+Nos dirigimos a IAM -> Usuarios -> Credenciales de seguridad -> Crear clave de acceso
+
 ![img](img/aws1.png)
 
 ![img](img/aws2.png)
+
+Tenemos que instalar el cliente aws CLI:
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+```
+Y lo configuro:
 
 ```
 aws configure
