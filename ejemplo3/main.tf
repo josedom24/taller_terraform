@@ -21,7 +21,7 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = var.instance_name
   }
-}
+
 # Copies the file as the root user using SSH
   provisioner "file" {
     source = "index.html"
@@ -48,4 +48,5 @@ resource "aws_instance" "app_server" {
       "sudo cp /tmp/index.html /var/www/html",
     ]
   }
+}
 
